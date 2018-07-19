@@ -1,4 +1,4 @@
-import {decrease, increase, multiply} from "../actions";
+import {decrease, increase, multiply, increaseAsync} from "../actions";
 import Counter from "../components/Counter";
 import {connect} from 'react-redux';
 
@@ -13,6 +13,11 @@ const mapDispatchToProps = (dispatch, props) => {
         onIncrement: (index) => dispatch(increase(index)),
         onDecrement: (index) => dispatch(decrease(index)),
         onMultiply: (index,multiplier) => dispatch(multiply(index, multiplier)),
+        onIncrementAsync:(index)=> {
+            setTimeout(() => {
+                dispatch(increaseAsync(index));
+            }, 1000);
+        },
     }
 }
 

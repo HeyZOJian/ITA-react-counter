@@ -14,7 +14,7 @@ class Counter extends Component {
     }
 
     render() {
-        const {value, onIncrement, onDecrement, index} = this.props;
+        const {value, onIncrement, onDecrement,onIncrementAsync, index} = this.props;
 
         return (
             <p>
@@ -29,6 +29,10 @@ class Counter extends Component {
                 <input type="text" defaultValue={0} ref={this.inputText}/>
                 <button onClick={this.multiple}>
                     *
+                </button>
+
+                <button onClick={()=>onIncrementAsync(index)}>
+                    Increment Async
                 </button>
             </p>
         );
